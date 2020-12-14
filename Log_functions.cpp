@@ -51,7 +51,9 @@ void Node_Print (Node* tree, FILE* Tree_image)
 
 void Logs_Print (int code_error, Node* tree)
 {
-    Tree_Print (tree);
+    if (tree != NULL)
+        Tree_Print (tree);
+
     //FILE* Akinator_logs = fopen ("Akinator_logs.txt", "w");
     FILE* Akinator_logs = stderr;
 
@@ -64,6 +66,9 @@ void Logs_Print (int code_error, Node* tree)
                                  break;
 
         case IMPOSSIBLE_COMMAND: fprintf (Akinator_logs, "\nError: incorrect format of entered command.\n");
+                                 break;
+
+        case NULL_POINTER:       fprintf (Akinator_logs, "\nError: trying to go after null pointer.\n");
                                  break;
     }
 

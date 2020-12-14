@@ -1,10 +1,12 @@
 run_akinator: Akinator.exe
 	Akinator.exe
 
-Akinator.exe: Akinator_main.o Log_functions.o File_processing.o Akinator.h
-	g++ -w Akinator_main.o Log_functions.o File_processing.o -o Akinator.exe
+Akinator.exe: Akinator_main.o Log_functions.o File_processing.o Stack_functions.o Akinator.h Stack\\Stack.h
+	g++ -w Akinator_main.o Log_functions.o File_processing.o Stack_functions.o -o Akinator.exe
 
- 
+Stack_functions.o: Stack\\Stack_functions.cpp
+	g++ -c -w Stack\\Stack_functions.cpp
+
 Akinator_main.o: Akinator_main.cpp
 	g++ -c -w Akinator_main.cpp
 
